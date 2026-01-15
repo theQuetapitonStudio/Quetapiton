@@ -25,10 +25,7 @@
       line-height: 1.6;
     }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+    a { color: var(--accent); text-decoration: none; }
 
     header {
       border-bottom: 1px solid var(--border);
@@ -53,9 +50,7 @@
       padding: 48px 24px;
     }
 
-    section {
-      margin-bottom: 72px;
-    }
+    section { margin-bottom: 72px; }
 
     section h2 {
       font-size: 1.2rem;
@@ -69,9 +64,9 @@
       max-width: 720px;
     }
 
-    .projects {
+    .projects, .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 16px;
       margin-top: 24px;
     }
@@ -80,39 +75,7 @@
       border: 1px solid var(--border);
       padding: 20px;
       background: #0f0f14;
-    }
-
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 8px;
-      font-size: 1rem;
-    }
-
-    .card p {
       font-size: 0.9rem;
-    }
-
-    .team {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
-      margin-top: 24px;
-    }
-
-    .member {
-      border: 1px solid var(--border);
-      padding: 20px;
-      background: #0f0f14;
-    }
-
-    .member h3 {
-      margin: 0 0 4px 0;
-      font-size: 1rem;
-    }
-
-    .member span {
-      font-size: 0.85rem;
-      color: var(--muted);
     }
 
     footer {
@@ -130,84 +93,118 @@
       gap: 16px;
       flex-wrap: wrap;
     }
-
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.3rem; }
-    }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Quetapiton Studio</h1>
-    <p>
-      An experimental studio focused on digital horror, anomalous systems,
-      and narrative artifacts. We build projects that look broken on purpose.
-    </p>
-  </header>
+<header>
+  <h1>Quetapiton Studio</h1>
+  <p>
+    An experimental studio focused on digital horror, anomalous systems
+    and narrative artifacts. We build projects that look broken on purpose.
+  </p>
+</header>
 
-  <main>
-    <section>
-      <h2>About</h2>
-      <p>
-        Quetapiton Studio explores horror through code, glitches, archives and
-        artificial structures. We care more about atmosphere than explanations
-        and prefer silence over exposition.
-      </p>
-    </section>
+<main>
 
-    <section>
-      <h2>Projects</h2>
-      <div class="projects">
-        <div class="card">
-          <h3>Loup Files</h3>
-          <p>
-            A fragmented archive of recordings, logs and corrupted media.
-            Nothing here wants to be understood quickly.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Experimental Shorts</h3>
-          <p>
-            Very short videos built around loops, sudden appearances and
-            perceptual discomfort.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Tools & Systems</h3>
-          <p>
-            Custom code, visual generators and strange utilities created for
-            internal use — sometimes released.
-          </p>
-        </div>
-      </div>
-    </section>
+<section>
+  <h2>About</h2>
+  <p>
+    Quetapiton Studio explores horror through code, glitches, archives and
+    artificial structures. We care more about atmosphere than explanations
+    and prefer silence over exposition.
+  </p>
+</section>
 
-    <section>
-      <h2>Team</h2>
-      <div class="team">
-        <div class="member">
-          <h3>Quetapiton</h3>
-          <span>Founder · Direction · Code · Lore</span>
-        </div>
-        <div class="member">
-          <h3><a href="https://www.youtube.com/@Cine.toons.brasil/" target="_blank">Erick</a></h3>
-          <span>Screenwriter</span>
-        </div>
-        <div class="member">
-          <h3>????????</h3>
-          <span>Screenwriter</span>
-        </div>
-      </div>
-    </section>
-
-
-  <footer>
-    <div>
-      <span>© Quetapiton Studio</span>
-      <span>Nothing here is accidental.</span>
+<section>
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="card">
+      <strong>Loup Files</strong><br>
+      Fragmented archives, logs and corrupted media.
     </div>
-  </footer>
+    <div class="card">
+      <strong>Experimental Shorts</strong><br>
+      Loops, sudden appearances and perceptual discomfort.
+    </div>
+    <div class="card">
+      <strong>Du56 Cryptography</strong><br>
+      A symbolic encryption system used inside the studio lore.
+    </div>
+  </div>
+</section>
+
+<section id="du56">
+  <h2>Du56 — Cryptography</h2>
+  <p>
+    Du56 is a symbolic substitution cipher created by Quetapiton Studio.
+    It is intentionally incomplete. It exists to hide meaning, not protect it.
+  </p>
+
+  <h3 style="margin-top:32px">Tutorial</h3>
+  <p>
+    Each letter maps to a fixed token. To encode, replace letters. To decode,
+    reverse the process manually. Missing letters are deliberate.
+  </p>
+
+  <div class="grid">
+    <div class="card">A → c56</div>
+    <div class="card">B → d65</div>
+    <div class="card">C → 656</div>
+    <div class="card">D → x5y</div>
+    <div class="card">E → y5t</div>
+    <div class="card">F → t5e</div>
+    <div class="card">G → vxy</div>
+    <div class="card">I → 156</div>
+    <div class="card">J → 651</div>
+    <div class="card">K → 561</div>
+    <div class="card">L → efj</div>
+    <div class="card">M → fje</div>
+    <div class="card">N → jef</div>
+    <div class="card">P → fkm</div>
+    <div class="card">Q → vmp</div>
+    <div class="card">R → mfv</div>
+    <div class="card">S → rjs</div>
+    <div class="card">T → 1tu</div>
+    <div class="card">U → vt1</div>
+    <div class="card">V → xtv</div>
+    <div class="card">W → wxy</div>
+    <div class="card">X → xyw</div>
+    <div class="card">Y → yxw</div>
+    <div class="card">Z → zzz</div>
+  </div>
+
+  <p style="margin-top:32px; color:var(--muted)">
+    If something cannot be decoded, it was not meant to be.
+  </p>
+</section>
+
+<section>
+  <h2>Team</h2>
+  <div class="grid">
+    <div class="card">
+      <strong>Quetapiton</strong><br>
+      Founder · Direction · Code · Lore
+    </div>
+    <div class="card">
+      <strong><a href="https://www.youtube.com/@Cine.toons.brasil/" target="_blank">Erick</a></strong><br>
+      Screenwriter
+    </div>
+    <div class="card">
+      <strong>????????</strong><br>
+      Screenwriter
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div>
+    <span>© Quetapiton Studio</span>
+    <span>Nothing here is accidental.</span>
+  </div>
+</footer>
 
 </body>
 </html>
