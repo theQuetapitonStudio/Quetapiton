@@ -1,100 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quetapiton Studio</title>
-  <meta name="description" content="Quetapiton Studio — experimental horror, digital artifacts, and strange systems." />
-  <style>
-    :root {
-      --bg: #0b0b0d;
-      --fg: #e6e6eb;
-      --muted: #9a9aa5;
-      --accent: #7c7cff;
-      --border: #1e1e26;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quetapiton Studio</title>
+<meta name="description" content="Quetapiton Studio — experimental horror, digital artifacts, and strange systems." />
 
-    * { box-sizing: border-box; }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--fg);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Arial, sans-serif;
-      line-height: 1.6;
-    }
-
-    a { color: var(--accent); text-decoration: none; }
-
-    header {
-      border-bottom: 1px solid var(--border);
-      padding: 32px 24px;
-    }
-
-    header h1 {
-      margin: 0 0 8px 0;
-      font-size: 1.6rem;
-      letter-spacing: 0.5px;
-    }
-
-    header p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 640px;
-    }
-
-    main {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 48px 24px;
-    }
-
-    section { margin-bottom: 72px; }
-
-    section h2 {
-      font-size: 1.2rem;
-      margin-bottom: 12px;
-      border-left: 3px solid var(--accent);
-      padding-left: 12px;
-    }
-
-    section p {
-      color: var(--muted);
-      max-width: 720px;
-    }
-
-    .projects, .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-top: 24px;
-    }
-
-    .card {
-      border: 1px solid var(--border);
-      padding: 20px;
-      background: #0f0f14;
-      font-size: 0.9rem;
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 24px;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    footer div {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-  </style>
+<style>
+:root {
+  --bg:#0b0b0d;
+  --fg:#e6e6eb;
+  --muted:#9a9aa5;
+  --accent:#7c7cff;
+  --border:#1e1e26;
+}
+*{box-sizing:border-box}
+html,body{
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:var(--fg);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  line-height:1.6;
+}
+a{color:var(--accent);text-decoration:none}
+header{
+  border-bottom:1px solid var(--border);
+  padding:32px 24px;
+}
+header h1{
+  margin:0 0 8px 0;
+  font-size:1.6rem;
+}
+header p{
+  margin:0;
+  color:var(--muted);
+  max-width:640px;
+}
+main{
+  max-width:1000px;
+  margin:0 auto;
+  padding:48px 24px;
+}
+section{margin-bottom:72px}
+section h2{
+  font-size:1.2rem;
+  margin-bottom:12px;
+  border-left:3px solid var(--accent);
+  padding-left:12px;
+}
+section p{
+  color:var(--muted);
+  max-width:720px;
+}
+.grid,.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+  margin-top:24px;
+}
+.card{
+  border:1px solid var(--border);
+  padding:20px;
+  background:#0f0f14;
+  font-size:.9rem;
+}
+textarea,button{
+  width:100%;
+  background:#0f0f14;
+  color:var(--fg);
+  border:1px solid var(--border);
+  padding:12px;
+  font-size:.9rem;
+}
+button{
+  cursor:pointer;
+  background:var(--accent);
+  color:#000;
+  border:none;
+}
+footer{
+  border-top:1px solid var(--border);
+  padding:32px 24px;
+  color:var(--muted);
+  font-size:.85rem;
+}
+footer div{
+  max-width:1000px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+}
+</style>
 </head>
+
 <body>
 
 <header>
@@ -110,9 +111,8 @@
 <section>
   <h2>About</h2>
   <p>
-    Quetapiton Studio explores horror through code, glitches, archives and
-    artificial structures. We care more about atmosphere than explanations
-    and prefer silence over exposition.
+    Quetapiton Studio explores horror through code, visual distortion,
+    incomplete archives and artificial structures. Atmosphere comes first.
   </p>
 </section>
 
@@ -128,55 +128,29 @@
       Loops, sudden appearances and perceptual discomfort.
     </div>
     <div class="card">
-      <strong>Du56 Cryptography</strong><br>
-      A symbolic encryption system used inside the studio lore.
+      <strong>TRSN156 System</strong><br>
+      Deterministic text transformation layer.
     </div>
   </div>
 </section>
 
-<section id="du56">
-  <h2>Du56 — Cryptography</h2>
+<section id="trsn156">
+  <h2>TRSN156 — Converter</h2>
   <p>
-    Du56 is a symbolic substitution cipher created by Quetapiton Studio.
-    It is intentionally incomplete. It exists to hide meaning, not protect it.
-  </p>
-
-  <h3 style="margin-top:32px">Tutorial</h3>
-  <p>
-    Each letter maps to a fixed token. To encode, replace letters. To decode,
-    reverse the process manually. Missing letters are deliberate.
+    Deterministic, reversible substitution system used for internal text
+    transformation. Not designed for security.
   </p>
 
   <div class="grid">
-    <div class="card">A → c56</div>
-    <div class="card">B → d65</div>
-    <div class="card">C → 656</div>
-    <div class="card">D → x5y</div>
-    <div class="card">E → y5t</div>
-    <div class="card">F → t5e</div>
-    <div class="card">G → vxy</div>
-    <div class="card">I → 156</div>
-    <div class="card">J → 651</div>
-    <div class="card">K → 561</div>
-    <div class="card">L → efj</div>
-    <div class="card">M → fje</div>
-    <div class="card">N → jef</div>
-    <div class="card">P → fkm</div>
-    <div class="card">Q → vmp</div>
-    <div class="card">R → mfv</div>
-    <div class="card">S → rjs</div>
-    <div class="card">T → 1tu</div>
-    <div class="card">U → vt1</div>
-    <div class="card">V → xtv</div>
-    <div class="card">W → wxy</div>
-    <div class="card">X → xyw</div>
-    <div class="card">Y → yxw</div>
-    <div class="card">Z → zzz</div>
+    <div class="card">
+      <textarea id="plain" rows="8" placeholder="Plain text"></textarea>
+      <button onclick="encrypt()">Encrypt</button>
+    </div>
+    <div class="card">
+      <textarea id="crypt" rows="8" placeholder="TRSN156 output"></textarea>
+      <button onclick="decrypt()">Decrypt</button>
+    </div>
   </div>
-
-  <p style="margin-top:32px; color:var(--muted)">
-    If something cannot be decoded, it was not meant to be.
-  </p>
 </section>
 
 <section>
@@ -186,14 +160,20 @@
       <strong>Quetapiton</strong><br>
       Founder · Direction · Code · Lore
     </div>
-
     <div class="card">
-      <strong><a href="https://youtube.com/@joaoshortsfadamariahxavier?si=QT8Kt-mVGj2N63pD" target="_blank">João Victor</a></strong><br>
+      <strong>
+        <a href="https://youtube.com/@joaoshortsfadamariahxavier?si=QT8Kt-mVGj2N63pD" target="_blank">
+          João Victor
+        </a>
+      </strong><br>
       Artist
     </div>
-
     <div class="card">
-      <strong><a href="https://www.youtube.com/@gondev-l8g2g" target="_blank">GonDev</a></strong><br>
+      <strong>
+        <a href="https://www.youtube.com/@gondev-l8g2g" target="_blank">
+          GonDev
+        </a>
+      </strong><br>
       3D Artist
     </div>
   </div>
@@ -207,6 +187,63 @@
     <span>Nothing here is accidental.</span>
   </div>
 </footer>
+
+<script>
+const table = [
+  ['A',"@q"], ['B',"Wx"], ['C',"9#"], ['D',"K%"], ['E',"m!"],
+  ['F',"R&"], ['G',"U$"], ['H',"7*"], ['I',"Z("], ['J',")P"],
+  ['K',"_="], ['L',"H+"], ['M',"V/"], ['N',"T<"], ['O',">Y"],
+  ['P',"E{"], ['Q',"}8"], ['R',"F^"], ['S',"J~"], ['T',"A]"],
+  ['U',"[C"], ['V',"0D"], ['W',"1X"], ['X',"2L"], ['Y',"3M"],
+  ['Z',"4N"],
+
+  ['a',"@Q"], ['b',"wx"], ['c',"9$"], ['d',"k%"], ['e',"M!"],
+  ['f',"r&"], ['g',"u$"], ['h',"7+"], ['i',"z("], ['j',")p"],
+  ['k',"_-"], ['l',"h+"], ['m',"v/"], ['n',"t<"], ['o',">y"],
+  ['p',"e{"], ['q',"}9"], ['r',"f^"], ['s',"j~"], ['t',"a]"],
+  ['u',"[c"], ['v',"0d"], ['w',"1x"], ['x',"2l"], ['y',"3m"],
+  ['z',"4n"],
+
+  ['0',"Q0"], ['1',"Q1"], ['2',"Q2"], ['3',"Q3"], ['4',"Q4"],
+  ['5',"Q5"], ['6',"Q6"], ['7',"Q7"], ['8',"Q8"], ['9',"Q9"],
+
+  [' ',"::"], ['.',".."], [',',",,"], ['!',"!!"], ['?',"??"],
+  ['-',"--"], ['_', "__"], ['/',"//"], ['|',"||"]
+];
+
+const encMap = new Map(table);
+const decMap = new Map(table.map(([p,c]) => [c,p]));
+
+function encrypt(){
+  const input = document.getElementById("plain").value;
+  let out = "";
+  for(const ch of input){
+    out += encMap.has(ch) ? encMap.get(ch) : ch;
+  }
+  document.getElementById("crypt").value = out;
+}
+
+function decrypt(){
+  const input = document.getElementById("crypt").value;
+  let out = "";
+  for(let i=0;i<input.length;){
+    let matched = false;
+    for(const [token,plain] of decMap){
+      if(input.startsWith(token,i)){
+        out += plain;
+        i += token.length;
+        matched = true;
+        break;
+      }
+    }
+    if(!matched){
+      out += input[i];
+      i++;
+    }
+  }
+  document.getElementById("plain").value = out;
+}
+</script>
 
 </body>
 </html>
