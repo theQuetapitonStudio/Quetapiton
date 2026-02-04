@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Tap Master Global</title>
+    <style>
+        :root {
+            --bg-blue: #5390E1;
+            --yellow: #FFFF00;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-blue);
+            font-family: 'Arial Black', sans-serif;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        /* --- UI SUPERIOR --- */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+        }
+
+        /* Ícone Menu (Botão Azul Circular com linhas) */
+        .btn-menu {
+            width: 45px; height: 45px;
+            background: radial-gradient(circle, #7db9e8 0%, #2989d8 100%);
+            border-radius: 50%;
+            border: 2px solid #1e5799;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+        }
+        .menu-line { width: 22px; height: 4px; background: #1e5799; border-radius: 2px; }
+
+        .score-text {
+            color: var(--yellow);
+            font-size: 58px;
+            margin-top: 10px;
+        }
+
+        .reset-btn {
+            background: #D0021B;
+            color: white;
+            border: 2px solid #000;
+            padding: 4px 14px;
+            border-radius: 6px;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 4px 0 #800000;
+        }
+
+        /* --- CAIXA DE PRESENTE (BÔNUS) --- */
+        .gift-container {
+            position: absolute;
+            left: 20px;
+            top: 110px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .gift-box {
+            width: 50px; height: 50px;
+            background: #FF0033; /* Vermelho vibrante */
+            border: 2px solid #000;
+            position: relative;
+            box-shadow: inset -5px -5px 0 rgba(0,0,0,0.1);
+        }
+        /* Fita Amarela */
+        .gift-box::before {
+            content: '';
+            position: absolute;
+            left: 50%; transform: translateX(-50%);
+            width: 10px; height: 100%;
+            background: #FFD700;
+            border-left: 2px solid #000;
+            border-right: 2px solid #000;
+        }
+        /* Laço */
+        .gift-box::after {
+            content: '🎀';
+            position: absolute;
+            top: -25px; left: -5px;
+            font-size: 45px;
+        }
+
+        .gift-val { color: #000; font-size: 26px; margin-top: 2px; }
+
+        /* --- BOTÕES CIRCULARES LATERAIS --- */
+        .side-btns {
+            position: absolute;
+            left: 25px;
+            top: 260px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .circle-red {
+            width: 55px; height: 55px;
+            background: radial-gradient(circle at 30% 30%, #ff4d4d, #800000);
+            border-radius: 50%;
+            border: 3px solid #ddd;
+            display: flex;
+            justify-content: center; align-items: center;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+        }
+        .minus-symbol { width: 25px; height: 6px; background: white; }
+
+        .circle-2x {
+            width: 55px; height: 55px;
+            background: radial-gradient(circle at 30% 30%, #fff700, #b8860b);
+            border-radius: 50%;
+            border: 3px solid #fff;
+            display: flex;
+            justify-content: center; align-items: center;
+            color: #fff; font-size: 24px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Espada (CSS Simples) */
+        .sword {
+            position: absolute;
+            right: 20px; top: 120px;
+            font-size: 40px;
+            transform: rotate(45deg);
+        }
+
+        /* --- BOTÕES DE CLIQUE (+) --- */
+        .plus-btn {
+            position: absolute;
+            width: 85px; height: 85px;
+            background: radial-gradient(circle at 35% 35%, #ff3e3e, #660000);
+            border-radius: 50%;
+            border: 4px solid #fff;
+            display: flex;
+            justify-content: center; align-items: center;
+            color: white; font-size: 55px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            transition: transform 0.05s;
+        }
+        .plus-btn:active { transform: scale(0.9); }
+
+        /* --- FOOTER --- */
+        .footer {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            color: var(--yellow);
+            font-size: 26px;
+            line-height: 1.2;
+        }
+
+        /* ANIMAÇÃO DE PONTOS */
+        .float-points {
+            position: absolute;
+            color: white;
+            font-weight: bold;
+            animation: float 0.6s ease-out forwards;
+            pointer-events: none;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="btn-menu">
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+        </div>
+        <div class="score-text" id="score">0</div>
+        <button class="reset-btn" onclick="resetGame()">RESET</button>
+    </div>
+
+    <div class="gift-container" onclick="openGift()">
+        <div class="gift" id="gift-box-anim">
+            <div class="gift-box"></div>
+        </div>
+        <div class="gift-val" id="gift-count">351</div>
+    </div>
+
+    <div class="side-btns">
+        <div class="circle-red"><div class="minus-symbol"></div></div>
+        <div class="circle-2x">2x</div>
+    </div>
+
+    <div class="sword">🗡️</div>
+
+    <div class="plus-btn" style="top: 45%; left: 44%;" onclick="clickPlus(event)">+</div>
+    <div class="plus-btn" style="top: 52%; left: 56%;" onclick="clickPlus(event)">+</div>
+
+    <br><br><br><br><br>
+    <input type="text" id="set_money" placeholder="Set Money">
+
+    <button id="confirmar" onclick="confirmar()">Confirm</button>
+    <div class="footer">
+        múltiplicador atual:1×<br>
+        próxima melhoria >30000 atual:283
+    </div>
+
+    <script>
+        let data = {
+            pts: 0,
+            gifts: 351,
+            mult: 1
+        };
+
+        const scoreEl = document.getElementById('score');
+        const giftEl = document.getElementById('gift-count');
+
+        function clickPlus(e) {
+            data.pts += data.mult;
+            updateUI();
+            showFloatingText(e.clientX, e.clientY, `+${data.mult}`);
+        }
+
+        function openGift() {
+            if (data.gifts > 0) {
+                const bonus = Math.floor(Math.random() * 500) + 100;
+                data.pts += bonus;
+                data.gifts--;
+                
+                // Efeito visual na caixa
+                const box = document.getElementById('gift-box-anim');
+                box.style.transform = "scale(1.2)";
+                setTimeout(() => box.style.transform = "scale(1)", 100);
+                
+                updateUI();
+                showFloatingText(window.innerWidth/2, window.innerHeight/2, `BÔNUS: +${bonus}!`, "#FFD700");
+            } else {
+                alert("Sem presentes no momento!");
+            }
+        }
+
+        function updateUI() {
+            scoreEl.innerText = data.pts;
+            giftEl.innerText = data.gifts;
+        }
+
+        function showFloatingText(x, y, text, color = "white") {
+            const el = document.createElement('div');
+            el.className = 'float-points';
+            el.innerText = text;
+            el.style.left = x + 'px';
+            el.style.top = y + 'px';
+            el.style.color = color;
+            document.body.appendChild(el);
+            setTimeout(() => el.remove(), 600);
+        }
+
+        function resetGame() {
+            if(confirm("Reiniciar jogo?")) {
+                data.pts = 0;
+                updateUI();
+            }
+        }
+
+        function confirmar() {
+    const inputMoney = document.getElementById("set_money").value;
+    
+    // Converte para número antes de salvar
+    data.pts = Number(inputMoney); 
+
+    updateUI();
+}
+    </script>
+</body>
+</html>
